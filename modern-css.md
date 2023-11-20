@@ -1,0 +1,26 @@
+# CSS of 2023
+
+- state of CSS
+- easier media queries
+- container queries
+- subgrid
+- timeline animation
+- view transition
+- anchor positioning
+- scroll behavior
+- scrollbar gutter
+- scroll snap
+- image(), image-set()
+- relative colors, other color spaces, mix
+- variable fonts
+- text-wrap: balance
+- color-scheme - prefers-reduced-motion/-data, prefers-contrast
+- :focus-visible
+- @property
+- :has()
+- :where()
+- trigonometric funcs
+- CSS nesting (and comparison to SCSS nesting)
+- individual transform properties
+- custom properties (and how to use them properly)
+- clamp

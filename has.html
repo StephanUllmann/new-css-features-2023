@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="has.css" />
+    <title>:has()</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Mercury</a></li>
+          <li><a href="#">Venus</a></li>
+          <li><a href="#">Mars</a></li>
+          <li>
+            <a href="#">Jupiter</a>
+            <ul>
+              <li><a href="#">Ganymede</a></li>
+              <li><a href="#">Europa</a></li>
+              <li><a href="#">Io</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Saturn</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <figure>
+        <img
+          src="https://images.pexels.com/photos/924824/pexels-photo-924824.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          width="200"
+          alt="stars rotating nightsky" />
+      </figure>
+      <figure>
+        <img
+          src="https://images.pexels.com/photos/631477/pexels-photo-631477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          width="200"
+          alt="starry sky with satelite" />
+        <figcaption>Starry Sky with satellite</figcaption>
+      </figure>
+    </main>
+    <footer>
+      <div>
+        <h2>Sign up for spacey news</h2>
+        <form>
+          <div class="field">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+              placeholder="Enter your Email-Address" />
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+              pattern=".{4,}" />
+          </div>
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>
