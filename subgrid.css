@@ -60,13 +60,12 @@ img {
   /* grid rows will be taken by the subgrid children */
   grid-row: span 3;
   grid-template-rows: subgrid;
-  /* grid-auto-rows: inherit; */
   justify-items: center;
   background-color: #212125;
   border-radius: 1rem;
-  /* max-width: 35ch; */
   padding-bottom: 1.5rem;
   overflow: hidden;
+  box-shadow: 2px 1px 3px #2121257a;
 
   /* with new CSS nesting you can write media queries nested! */
   @container (width < 700px) {
@@ -81,7 +80,7 @@ img {
 .star[data-feature] {
   text-decoration: none;
   color: inherit;
-  /* view-transition-name: morph; */
+  view-transition-name: morph;
 
   @container (width < 1490px) and (width > 1109px) {
     grid-column: span 2;
@@ -104,10 +103,12 @@ img {
   }
 }
 
+/* single card after view transition */
 .star[data-feature]:not(:has(+ .star)) {
   grid-template-rows: auto;
   gap: 2rem;
   background-color: transparent;
+  box-shadow: none;
 
   .star__img {
     height: 50dvh;
@@ -139,7 +140,7 @@ a:hover {
 }
 
 .star[data-feature] .star__img {
-  view-transition-name: image;
+  /* view-transition-name: image; */
 }
 
 ::view-transition-old(.star__img) {
