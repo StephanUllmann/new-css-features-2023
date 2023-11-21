@@ -181,16 +181,26 @@ a:hover {
   font-size: 3rem;
   animation: scroll-along linear;
   animation-timeline: scroll();
+  rotate: -45deg;
+}
+.scroll-thingy::before {
+  content: '🚀';
+  animation: scroll-along linear;
+  animation-timeline: scroll();
 }
 
 @keyframes scroll-along {
-  from {
+  0% {
     font-size: 1rem;
-    bottom: 0dvh;
+    bottom: -10dvh;
   }
-  to {
-    bottom: 90dvh;
+  66% {
+    content: '🚀';
+  }
+  100% {
+    right: 0;
+    content: '💥';
+    bottom: 100dvh;
     font-size: 4rem;
-    /* transform: translateY(-90dvh); */
   }
 }
