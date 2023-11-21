@@ -13,10 +13,13 @@ html {
 body {
   font-family: 'Trispace', sans-serif;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
-  vertical-align: center;
+  display: block;
   max-width: 100%;
   height: auto;
   font-style: italic;
@@ -35,7 +38,7 @@ img {
 }
 
 .grid {
-  margin: 2rem;
+  margin: 2rem 10rem;
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 35rem), 1fr));
@@ -43,10 +46,13 @@ img {
   grid-auto-flow: dense;
   column-gap: clamp(1rem, 5vw, 3rem);
   row-gap: 3rem;
-  /* justify-items: center; */
   place-items: center;
 
   container-type: inline-size;
+
+  @media screen and (width < 1200px) {
+    margin: 2rem 5rem;
+  }
 }
 
 .star {
@@ -59,7 +65,8 @@ img {
   background-color: #212125;
   border-radius: 1rem;
   /* max-width: 35ch; */
-  padding: 0 0.5rem 1.5rem 0.5rem;
+  padding-bottom: 1.5rem;
+  overflow: hidden;
 
   /* with new CSS nesting you can write media queries nested! */
   @container (width < 700px) {
@@ -70,7 +77,12 @@ img {
     grid-column: span 2;
   } */
 }
+
 .star[data-feature] {
+  text-decoration: none;
+  color: inherit;
+  /* view-transition-name: morph; */
+
   @container (width < 1490px) and (width > 1109px) {
     grid-column: span 2;
 
@@ -92,9 +104,58 @@ img {
   }
 }
 
+.star[data-feature]:not(:has(+ .star)) {
+  grid-template-rows: auto;
+  gap: 2rem;
+  background-color: transparent;
+
+  .star__img {
+    height: 50dvh;
+    /* grid-column: span 2; */
+  }
+  .star__heading {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .star__description {
+    max-width: 50ch;
+    font-size: 1.5rem;
+  }
+}
+
+a {
+  transform: all 200ms;
+}
+
+a:hover {
+  filter: saturate(120%);
+}
+
 .star__img {
   height: 100%;
-  object-fit: contain;
+  object-fit: none;
+  /* doesn't work - names need to be unique for each element  */
+  /* view-transition-name: image; */
+}
+
+.star[data-feature] .star__img {
+  view-transition-name: image;
+}
+
+::view-transition-old(.star__img) {
+  animation: animate-pic 300ms forwards;
+}
+::view-transition-new(.star__img) {
+  animation: animate-pic 300ms reverse;
+}
+
+@keyframes animate-pic {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 50dvh;
+  }
 }
 
 .star__heading {
