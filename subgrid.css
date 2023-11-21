@@ -56,6 +56,8 @@ img {
 }
 
 .star {
+  text-decoration: none;
+  color: inherit;
   display: grid;
   /* grid rows will be taken by the subgrid children */
   grid-row: span 3;
@@ -78,8 +80,6 @@ img {
 }
 
 .star[data-feature] {
-  text-decoration: none;
-  color: inherit;
   view-transition-name: morph;
 
   @container (width < 1490px) and (width > 1109px) {
@@ -104,7 +104,7 @@ img {
 }
 
 /* single card after view transition */
-.star[data-feature]:not(:has(+ .star)) {
+.star:not(:has(+ .star)):first-child {
   grid-template-rows: auto;
   gap: 2rem;
   background-color: transparent;
