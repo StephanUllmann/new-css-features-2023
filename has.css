@@ -4,10 +4,6 @@
   box-sizing: inherit;
 }
 
-img {
-  vertical-align: center;
-}
-
 html {
   box-sizing: border-box;
   color-scheme: dark;
@@ -20,6 +16,10 @@ body {
   gap: 2rem;
   grid-template-rows: 3rem auto;
   font-family: sans-serif;
+}
+
+img {
+  display: block;
 }
 
 nav {
@@ -69,13 +69,16 @@ ul li:hover::after {
   /* transition: scale 250ms ease-out, translate 250ms ease-out; */
 }
 
+/* support query, if browser supports feature */
 @supports selector(:has(h1)) {
   ul li:hover + li::after {
     translate: -100%;
     --scale-delay: 200ms;
     --translate-delay: 125ms;
   }
+  /* affects the after pseudo-element of a li, which has an hovered next sibling */
   ul li:has(+ :hover)::after {
+    /* background-color: red; */
     translate: 100%;
     --scale-delay: 200ms;
     --translate-delay: 125ms;
@@ -86,6 +89,7 @@ ul li:has(ul) {
   padding-right: 1.5rem;
 }
 
+/* after of a list item that has a nestet ul */
 ul li:has(ul) > a::after {
   content: url('data:image/svg+xml,%3Csvg fill="" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M17 10L12 15L7 10" stroke="grey" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>');
   position: absolute;
@@ -148,8 +152,8 @@ figure:has(figcaption) {
 .field:has(:invalid) {
   color: red;
 
-  & input,
-  & input:focus-visible {
+  input,
+  input:focus-visible {
     border: 1px solid red;
   }
 }
@@ -157,8 +161,8 @@ figure:has(figcaption) {
 .field:has(:placeholder-shown) {
   color: currentColor;
 
-  & input,
-  & input:focus-visible {
+  input,
+  input:focus-visible {
     border: 1px solid white;
   }
 }
