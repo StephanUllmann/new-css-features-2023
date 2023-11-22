@@ -96,7 +96,7 @@ ul li:has(ul) > a::after {
   transform-origin: 2.66rem;
 }
 
-ul li:has(ul):hover > a::after {
+ul li:hover > a::after {
   rotate: 180deg;
   top: 0px;
   left: 0px;
@@ -108,7 +108,7 @@ ul li ul {
   /* top: 1.5rem; */
 }
 
-ul li:has(ul):hover ul {
+ul li:hover ul {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -131,6 +131,12 @@ figure:has(figcaption) {
   font-size: small;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -145,24 +151,50 @@ figure:has(figcaption) {
   border: 1px solid white;
 }
 
-.field input:focus-visible,
-.field input:focus {
-  outline: none;
-}
 .field:has(:invalid) {
   color: red;
 
-  input,
-  input:focus-visible {
+  & input,
+  & textarea {
     border: 1px solid red;
+  }
+  & input:focus-visible,
+  & textarea {
+    outline: 2px solid red;
+    outline-offset: 2px;
+  }
+}
+
+.field:has(:valid) {
+  color: greenyellow;
+
+  & input,
+  & textarea {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+  }
+  & input:focus-visible,
+  & textarea {
+    outline: 2px solid greenyellow;
+    outline-offset: 2px;
   }
 }
 
 .field:has(:placeholder-shown) {
   color: currentColor;
 
-  input,
-  input:focus-visible {
+  & input,
+  & textarea {
     border: 1px solid white;
   }
+  & input:focus-visible,
+  & textarea {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
+}
+
+form button {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
 }

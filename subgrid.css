@@ -33,6 +33,7 @@ img {
   margin: 2rem 10rem;
   /* CSS nesting allows to write media queries inside of the affected rule */
   /* new query < > instead of min-width, max-width */
+
   @media screen and (width < 400px) {
     margin: 2rem auto;
     text-align: center;
@@ -91,7 +92,7 @@ img {
 
 .star[data-feature] {
   /* unique name for a view transition */
-  /* name doesn't matter */
+  /* name doesn't matter besides uniqueness and same on transitioned element */
   /* ~66% support for SPA, behind chrome flag for MPA */
   /* view-transition-name: morph; */
 
@@ -123,7 +124,7 @@ img {
   background-color: transparent;
   box-shadow: none;
 
-  .star__img {
+  & .star__img {
     height: 50dvh;
     /* grid-column: span 2; */
   }
@@ -154,23 +155,21 @@ a {
 }
 
 .star[data-feature] .star__img {
-  /* view-transition-name: animate-pic; */
+  view-transition-name: animate-pic;
 }
 
 /* customize view transitions */
-body::view-transition-old(.star[data-feature] .star__img) {
-  animation: animate-pic 30000ms forwards;
-}
-body::view-transition-new(.star[data-feature] .star__img) {
-  animation: animate-pic 30000ms reverse;
+/* ::view-transition-old(jupiter) {
+  animation: animate-pic 1000ms forwards;
+} */
+::view-transition-new(jupiter) {
+  animation: animate-pic 1000ms reverse;
 }
 
 @keyframes animate-pic {
-  from {
-    height: 0;
-  }
   to {
     height: 75dvh;
+    rotate: 1turn;
   }
 }
 

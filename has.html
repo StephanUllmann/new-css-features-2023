@@ -42,7 +42,8 @@
     </main>
     <footer>
       <div>
-        <h2>Sign up for spacey news</h2>
+        <!-- <h2>Sign up for spacey news</h2> -->
+        <h2>One for all, all for your message</h2>
         <form>
           <div class="field">
             <label for="email">Email</label>
@@ -51,7 +52,6 @@
               name="email"
               id="email"
               required
-              pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
               placeholder="Enter your Email-Address" />
           </div>
           <div class="field">
@@ -62,8 +62,22 @@
               id="password"
               placeholder="Enter your password"
               required
-              pattern=".{4,}" />
+              pattern=".{4,}"
+              title="At least 4 characters." />
           </div>
+          <div class="field">
+            <label for="message">Your Message</label>
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder=" "
+              maxlength="500"
+              title="max 500 characters"
+              required></textarea>
+          </div>
+          <button>Submit</button>
         </form>
       </div>
     </footer>
